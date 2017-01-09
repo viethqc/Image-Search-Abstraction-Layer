@@ -1,0 +1,8 @@
+{
+  "name": "File Metadata Microservice ",
+  "description": "",
+  "repository": "https://github.com/viethqc/File-Metadata",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}

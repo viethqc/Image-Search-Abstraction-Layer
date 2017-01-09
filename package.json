@@ -1,0 +1,25 @@
+{
+  "name": "imageseacrh",
+  "version": "1.0.0",
+  "description": "image search",
+  "main": "index.js",
+  "scripts": {
+    "test": "run index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viethqc/Image-Search-Abstraction-Layer.git"
+  },
+  "author": "viethqc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viethqc/Image-Search-Abstraction-Layer/issues"
+  },
+  "homepage": "https://github.com/viethqc/Image-Search-Abstraction-Layer#readme",
+  "dependencies": {
+    "bing.search": "^1.0.1",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.19"
+  }
+}

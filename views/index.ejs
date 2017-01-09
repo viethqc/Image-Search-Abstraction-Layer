@@ -1,0 +1,88 @@
+</p><h1 class="header">FreeCodeCamp API: Image Search Abstraction Layer</h1><blockquote><p>User stories:</p><ol><li>I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li><li>I can paginate through the responses by adding a ?offset=2 parameter to the URL.</li><li>I can get a list of the most recently submitted search strings.</li></ol></blockquote><h3>Example query usage:</h3><code>https://viethqc-image-search.herokuapp.com/lolcats%20funny?offset=1</code><br/><code>https://viethqc-image-search.herokuapp.com/api/lasted/imagesearch/</code><h3>Example query output:</h3><code>
+[
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=Qso_Ce9KgBKgBWljjlX6OPehV3tHKzm860ojOTMn1Dc&v=1&r=http%3a%2f%2fwww.dumpaday.com%2fwp-content%2fuploads%2f2012%2f12%2ffunny-lolcats.jpg&p=DevEx,5008.1",
+		"snippet": "tagged with funny pictures 28 pics funny pictures",
+		"thumbnail": "https://tse2.mm.bing.net/th?id=OIP.M458d6d7c38dfd8f66c87f7bf8fc39c64o0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=PZsVfXyDrV9oymj2VAZuuzDuchQVXjkpSQ6N9sIniGo&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3d2C4A2913CFC56A954A74FB7818AB8026AB90E4E9%26simid%3d608054657603602943&p=DevEx,5006.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=bjFxi1tiWara7YOIcMaHZtTSoyWlkwBMKjPWBa-wQ7g&v=1&r=http%3a%2f%2f4.bp.blogspot.com%2f-epxUtTpidgM%2fTl0LrfIwPOI%2fAAAAAAAAdOY%2frwZA0Zb_jWg%2fs1600%2flolcats5.jpg&p=DevEx,5014.1",
+		"snippet": "Hilarious LOLcats Seen On www.coolpicturegallery.us",
+		"thumbnail": "https://tse3.mm.bing.net/th?id=OIP.Mb796e2f7a6f4001d32c898791a7c4921H0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=IJ_UhfjcCRhasy0fiaIzmtCgK5jyNXUGi8L9DKAk8TE&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3dCC15719F29CE720F9F2126F831F1FB50E3BBB89E%26simid%3d607990379115708718&p=DevEx,5012.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=qwKKqovE0fNcT9NYrIlOCphziwalpWJ_Uiowgw3GVns&v=1&r=http%3a%2f%2fcdn1.smosh.com%2fsites%2fdefault%2ffiles%2flegacy.images%2fsmosh-pit%2f122010%2flolcat-thermometer.jpg&p=DevEx,5020.1",
+		"snippet": "Most LOLcats are from icanhascheezburger.com or LOLcats.com.",
+		"thumbnail": "https://tse4.mm.bing.net/th?id=OIP.Mf326986f2db8d547eb746054078235d5o0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=DGcr5pIGTov30Y6qjkt6ZYfuC6-f1E8j5iMrOKtWh5c&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3d2246A747B5FD022B19578EF6393224369DE3BC0E%26simid%3d608030936496146527&p=DevEx,5018.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=kD8-N_IQBqkB7EvjD2CgS5KIoMjwAiSkqFSjz1lfkXE&v=1&r=http%3a%2f%2fwww.innocentenglish.com%2ffunny-pics%2flolcats%2ffunny-cat-swimmingin-styro.jpg&p=DevEx,5026.1",
+		"snippet": "Really Funny Kitten lolcat",
+		"thumbnail": "https://tse4.mm.bing.net/th?id=OIP.M628e7dfb63b4f578bbc7322e471e9228o0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=e0DsHXPjKJGbPgttoUQNykxW2hwYfDQyWPhFUDhHagQ&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3d7C27ABCDE3F2A27492A4D62F8B31C9620A486D68%26simid%3d608012390826445079&p=DevEx,5024.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=_Tf3Bu1UHb53-eTjvNoJLiMZLWUP47yYcTNUAlxVnd4&v=1&r=http%3a%2f%2f1.bp.blogspot.com%2f-W5Wth73DZi8%2fUPaZd5gJh8I%2fAAAAAAAAKiY%2fwFooQfnc13s%2fs1600%2fBABY%2bMARSHMALLOW%2bFLUFFIES!.jpg&p=DevEx,5032.1",
+		"snippet": "Funny & Cute Animal Pictures | Fun Animals Wiki, Videos, Pictures ...",
+		"thumbnail": "https://tse2.mm.bing.net/th?id=OIP.M2563c91212dd30fbc6afd4e6d0ce57b9o0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=TQ77vBHxH2jqPylfQaVoqJIyAjSSaCStILe1H0s-TQI&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3d41753F4352C5BAB0DACC3862ADF493C8B4A3F985%26simid%3d607992092806482507&p=DevEx,5030.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=5vpBsJvO5F0fMgAY9g6m_J1fxKq-LlnI-Ts1BPT3_lU&v=1&r=http%3a%2f%2f3.bp.blogspot.com%2f-qTN78ndyw34%2fUGUHy9Uth9I%2fAAAAAAAAA6s%2f39QVMV2ToaE%2fs1600%2fLOLCATS3.jpg&p=DevEx,5038.1",
+		"snippet": "Rosey675's Weirdly Awesome Panfu Blog: LOLcats",
+		"thumbnail": "https://tse2.mm.bing.net/th?id=OIP.M374daf52949923f30f3230fe044b8174H0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=mTmfBbr9tcqmkpSX6VxjAJu4yCbPnVrJS00vSPLWKBI&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3d450C61D7B68C1D4AF4DFF5855B5EBE860EA9A471%26simid%3d608024837635901544&p=DevEx,5036.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=SaBlQgYukGXG3muG8_1PoEG-krPmdKMvJ-yQEZKtkx0&v=1&r=http%3a%2f%2fmattiesworld.gotdns.org%2fweblog%2fwp-content%2fuploads%2f2007%2f11%2flolcat-funny-picture-mario-cat.jpg&p=DevEx,5044.1",
+		"snippet": "Lolcats Funny Lolcats",
+		"thumbnail": "https://tse2.mm.bing.net/th?id=OIP.M10a617b47b5911663fb12278f4758161H0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=BkXJLwaUC4am3VAR86vD8Ymf7btLJyvdMHIizrbBn70&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3d063137E5DF3C9E3F299DC43DB451EF8D88CC3503%26simid%3d608021947129136034&p=DevEx,5042.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=xr_qd8WfxFKIKb643JRxUqFHv65zW26yUsQu8Aw713o&v=1&r=http%3a%2f%2f4.bp.blogspot.com%2f_b3GHoGMBNpY%2fTSIoAGmKgrI%2fAAAAAAAAFGs%2fkrY10VMMlyA%2fs1600%2fLOLCats10.png&p=DevEx,5050.1",
+		"snippet": "lolcats that just do not like being lolcats for example the lolcat ...",
+		"thumbnail": "https://tse2.mm.bing.net/th?id=OIP.Med89e883941b69caa5a6c0a3780dfc7bH0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=MoeA2v4Desh8ZMZv_f29w-Id9NZp9vFYjPgDdpD8r8A&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3dB23D4DD432246D836D6C20113E5615659B6A3757%26simid%3d607987531555606148&p=DevEx,5048.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=ydsnEWlSk_nYsUv4r_dN-nET_4nOo3HSffgJDICnMuk&v=1&r=http%3a%2f%2f4.bp.blogspot.com%2f-ywEu4UByzBA%2fTr4N4AzWVgI%2fAAAAAAAAD14%2fJb-jtIYjh20%2fs1600%2ffunny%2bcat%2bdance_8.jpg&p=DevEx,5056.1",
+		"snippet": "Funny Cat Dance | All Funny",
+		"thumbnail": "https://tse1.mm.bing.net/th?id=OIP.Mb18a022d31b13ea8ba2f1d3e519f7053o0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=ck0_yRRzFcHjxICQXSap61-hdf3pAWMYPDJkND6om5Y&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3dBFAB9AE4740DC90A172095DB954EBAEFFD2E1E54%26simid%3d608017115285619096&p=DevEx,5054.1"
+	},
+	{
+		"url": "http://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=o7UDowl1nNqZVIUegAslG5v8_dWbcNtorrxlkfGs27w&v=1&r=http%3a%2f%2fwww.lolcats.com%2fimages%2fu%2f12%2f24%2flolcatsdotcompromdate.jpg&p=DevEx,5062.1",
+		"snippet": "LOLCats - Funny cat pictures",
+		"thumbnail": "https://tse4.mm.bing.net/th?id=OIP.Mb0c49c87eac3d950d3c48592a34944b0o0&pid=Api",
+		"context": "https://www.bing.com/cr?IG=61AA4D49AAA9406BB07E3B0C48E5503B&CID=30A567D1991860C820E76DD4980A6193&rd=1&h=PYDnuD9NnCjTy-8WNn0HluMoyQmx7Es2e2HtoLF6Dh4&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fview%3ddetailv2%26FORM%3dOIIRPO%26q%3dlolcats%2bfunny%26id%3dD9E30CE4E2C454E86538C4836E0BBA86E93CFC75%26simid%3d608037851387858469&p=DevEx,5060.1"
+	}
+]</code><h3>Example latest output:</h3><code>[
+	{
+		"term": "home",
+		"when": "Mon, 09 Jan 2017 16:16:38 GMT"
+	},
+	{
+		"term": "cat",
+		"when": "Mon, 09 Jan 2017 16:19:55 GMT"
+	},
+	{
+		"term": "cat",
+		"when": "Mon, 09 Jan 2017 16:20:01 GMT"
+	},
+	{
+		"term": "cat",
+		"when": "Mon, 09 Jan 2017 16:20:19 GMT"
+	},
+	{
+		"term": "",
+		"when": "Mon, 09 Jan 2017 16:48:03 GMT"
+	},
+	{
+		"term": "lolcats%20funny",
+		"when": "Mon, 09 Jan 2017 16:51:34 GMT"
+	}
+]</code></div></body>
